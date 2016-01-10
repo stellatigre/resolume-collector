@@ -1,0 +1,7 @@
+{
+    "describe": {
+        "refresh": "update clip source paths to new base location. without copying.\n                             Intended for using an archive on a new computer.",
+        "outputDir" : "folder to place our new composition",
+        "composition" : "Resolume composition input file (*.avc)"
+    }
+}

@@ -1,0 +1,20 @@
+{
+  "name": "resolume-collector",
+  "version": "0.1.0",
+  "description": "rewrite resolume clip file paths + collect & zip clips",
+  "main": "collector.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "resolume"
+  ],
+  "author": "Stella Tigre",
+  "license": "ISC",
+  "dependencies": {
+    "async": "^1.5.2",
+    "commander": "^2.9.0",
+    "fs-extra": "^0.26.4",
+    "xml2js": "^0.4.15"
+  }
+}
