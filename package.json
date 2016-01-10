@@ -21,5 +21,8 @@
     "progress-stream": "^1.2.0",
     "progressbar": "^1.0.3",
     "xml2js": "^0.4.15"
+  },
+  "bin": {
+      "resolume-collector": "collector.js"
   }
 }
