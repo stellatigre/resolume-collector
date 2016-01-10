@@ -7,14 +7,19 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
-    "resolume"
+    "resolume",
+    "VJ"
   ],
   "author": "Stella Tigre",
   "license": "ISC",
   "dependencies": {
+    "archiver": "^0.21.0",
     "async": "^1.5.2",
     "commander": "^2.9.0",
     "fs-extra": "^0.26.4",
+    "get-folder-size": "^1.0.0",
+    "progress-stream": "^1.2.0",
+    "progressbar": "^1.0.3",
     "xml2js": "^0.4.15"
   }
 }
