@@ -12,6 +12,13 @@ cli.option('-c, --composition <file>', config.describe.composition)
     .option('-r, --refresh', config.describe.refresh)
     .parse(process.argv);
 
+// default to showing help with no input
+if (cli.args.length === 0) {
+    console.info(cli.helpInformation());
+    process.exit();
+}
+
+// all the [0]s and ['$']s are because of the xml parsing
 function clipIsFile(clip) {
     return clip.videoClip[0].source[0]['$'].type === 'file';
 }
@@ -29,7 +36,7 @@ function getNewPath(oldPath) {
 }
 
 function copyClip(clip, cb) {
-    // make sure to excluse FX clips
+    // make sure to exclude FX / non-file clips
     if (!clipIsFile(clip))  {
         cb(null, clip);
         return;
