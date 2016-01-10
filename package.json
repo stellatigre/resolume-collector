@@ -1,6 +1,6 @@
 {
   "name": "resolume-collector",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "rewrite resolume clip file paths + collect & zip clips",
   "main": "collector.js",
   "scripts": {
