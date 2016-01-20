@@ -4,7 +4,7 @@ var path = require('path');
 var async = require('async');
 var cli = require('commander');
 var xml2js = require('xml2js');
-var zipFolder = require('./zipFolder.js');
+var zipFolder = require('./zipFolder');
 var config = require('./config.json');
 
 var composition, newRootFolder;
@@ -40,17 +40,16 @@ function defaultError(err, cb) {
 function copyClip(clip, cb) {
     // make sure to exclude FX / non-file clips
     if (!clipIsFile(clip))  {
-        cb(null, clip);
-        return;
+        return cb(null, clip);
     }
 
     var location = oldPath(clip);
     var newPath = getNewPath(location);
+
     // handle when we want to just use a moved archive + update paths
     if (cli.refresh) {
         setClipPath(clip, newPath);
-        cb(null, clip);
-        return;
+        return cb(null, clip);
     }
     fs.copy(location, newPath, (err) => {
         if (!err) {
