@@ -7,6 +7,9 @@ var xml2js = require('xml2js');
 var zipFolder = require('./zipFolder');
 var config = require('./config.json');
 
+// so we don't copy the same clip in compositions that re-use
+var copiedClips = [];
+
 var composition, newRootFolder;
 
 cli.option('-c, --composition <file>', config.describe.composition)
@@ -16,20 +19,40 @@ cli.option('-c, --composition <file>', config.describe.composition)
     .parse(process.argv);
 
 // all the [0]s and ['$']s are because of the xml parsing
-function clipIsFile(clip) {
-    return clip.videoClip[0].source[0]['$'].type === 'file';
+function clipHasFile(clip) {
+    //console.log(clip);
+    var videoFile, audioFile;
+    if (clip.videoClip[0]) {
+        videoFile = clip.videoClip[0].source[0]['$'].type === 'file';
+    }
+    if (clip.audioClip[0]) {
+        //console.log("audio clip tru")
+        audioFile = clip.audioClip[0].source[0]['$'].type === 'file';
+    }
+    return (audioFile || videoFile);
 }
 
-function setClipPath(clip, path) {
-    clip.videoClip[0].source[0]['$'].name = path;
+function setClipPaths(clip, paths) {
+    if (clip.videoClip[0]) clip.videoClip[0].source[0]['$'].name = paths.video;
+    if (clip.audioClip[0]) clip.audioClip[0].source[0]['$'].name = paths.audio;
 }
 
-function oldPath(clip) {
-    return clip.videoClip[0].source[0]['$'].name;
+function oldPaths(clip) {
+    var video, audio;
+    if (clip.videoClip[0]) {
+        video = clip.videoClip[0].source[0]['$'].name;
+    }
+    if (clip.audioClip[0]) {
+        //console.log("audio clip tru in oldPaths", clip.audioClip);
+        audio = clip.audioClip[0].source[0]['$'].name;
+    }
+    return {video: video || '' , audio: audio || ''};
 }
 
-function getNewPath(oldPath) {
-    return path.join(newRootFolder, 'clips', path.basename(oldPath));
+function getNewPaths(oldPaths) {
+    var video = path.join(newRootFolder, 'video', path.basename(oldPaths.video));
+    var audio = path.join(newRootFolder, 'audio', path.basename(oldPaths.audio));
+    return {video: video, audio: audio};
 }
 
 function defaultError(err, cb) {
@@ -39,26 +62,39 @@ function defaultError(err, cb) {
 
 function copyClip(clip, cb) {
     // make sure to exclude FX / non-file clips
-    if (!clipIsFile(clip))  {
+    if (!clipHasFile(clip))  {
         return cb(null, clip);
     }
 
-    var location = oldPath(clip);
-    var newPath = getNewPath(location);
+    var paths = oldPaths(clip);
+    //console.log(paths);
+    var newPaths = getNewPaths(paths);
+    //console.log(clip, newPaths);
 
     // handle when we want to just use a moved archive + update paths
-    if (cli.refresh) {
+    if (cli.refresh || copiedClips.indexOf(clip) != -1) {
+
         setClipPath(clip, newPath);
         return cb(null, clip);
     }
-    fs.copy(location, newPath, (err) => {
-        if (!err) {
-            console.log(`copied ${path.basename(location)} to ${newRootFolder}`);
-            setClipPath(clip, newPath);
-            cb(null, clip);
+
+    copiedClips.push(clip);
+    ['audio', 'video'].forEach((type, i) => {
+        var file = paths[type];
+        console.log(paths);
+        if (path) {
+            fs.copy(file, newPaths[type], (err) => {
+                if (!err) {
+                    console.log(`copied ${path.basename(file)} ${type} to ${newRootFolder}`);
+                    setClipPaths(clip, newPaths);
+                    cb(null, clip);
+                }
+                else defaultError(err, cb);
+            });
         }
-        else defaultError(err, cb);
-    });
+
+    })
+
 }
 
 function parseDeck(deckWrapper, cb) {
