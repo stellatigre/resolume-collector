@@ -18,15 +18,15 @@ cli.option('-c, --composition <file>', config.describe.composition)
     .option('-z, --zip', config.describe.zip)
     .parse(process.argv);
 
+var log = fs.createWriteStream('cliplog2.json');
+
 // all the [0]s and ['$']s are because of the xml parsing
 function clipHasFile(clip) {
-    //console.log(clip);
     var videoFile, audioFile;
     if (clip.videoClip[0]) {
         videoFile = clip.videoClip[0].source[0]['$'].type === 'file';
     }
     if (clip.audioClip[0]) {
-        //console.log("audio clip tru")
         audioFile = clip.audioClip[0].source[0]['$'].type === 'file';
     }
     return (audioFile || videoFile);
@@ -43,15 +43,22 @@ function oldPaths(clip) {
         video = clip.videoClip[0].source[0]['$'].name;
     }
     if (clip.audioClip[0]) {
-        //console.log("audio clip tru in oldPaths", clip.audioClip);
         audio = clip.audioClip[0].source[0]['$'].name;
     }
     return {video: video || '' , audio: audio || ''};
 }
 
-function getNewPaths(oldPaths) {
-    var video = path.join(newRootFolder, 'video', path.basename(oldPaths.video));
-    var audio = path.join(newRootFolder, 'audio', path.basename(oldPaths.audio));
+function getNewPaths(newRootFolder, oldPaths) {
+    if (oldPaths.video) {
+        video = path.join(newRootFolder, 'video', path.basename(oldPaths.video));
+    }
+    else video = ''
+
+    if (oldPaths.audio) {
+        audio = path.join(newRootFolder, 'audio', path.basename(oldPaths.audio));
+    }
+    else audio = ''
+
     return {video: video, audio: audio};
 }
 
@@ -63,37 +70,36 @@ function defaultError(err, cb) {
 function copyClip(clip, cb) {
     // make sure to exclude FX / non-file clips
     if (!clipHasFile(clip))  {
+        console.log("\nNON FILE\n");
         return cb(null, clip);
     }
 
     var paths = oldPaths(clip);
-    //console.log(paths);
-    var newPaths = getNewPaths(paths);
-    //console.log(clip, newPaths);
+    var newPaths = getNewPaths(newRootFolder, paths);
+    console.log(paths, newPaths);
 
     // handle when we want to just use a moved archive + update paths
     if (cli.refresh || copiedClips.indexOf(clip) != -1) {
-
         setClipPath(clip, newPath);
         return cb(null, clip);
     }
 
     copiedClips.push(clip);
-    ['audio', 'video'].forEach((type, i) => {
+    async.each(['audio', 'video'], (type, cb) => {
         var file = paths[type];
-        console.log(paths);
-        if (path) {
+        if (file) {
             fs.copy(file, newPaths[type], (err) => {
                 if (!err) {
                     console.log(`copied ${path.basename(file)} ${type} to ${newRootFolder}`);
                     setClipPaths(clip, newPaths);
                     cb(null, clip);
                 }
-                else defaultError(err, cb);
+                else defaultError(err, cb); console.error(paths);
             });
-        }
-
-    })
+        } else cb();
+    }, (err, result) => {
+        console.log("final cb??",err, result);
+    });
 
 }
 
@@ -128,17 +134,24 @@ function saveComposition(compName, data) {
     });
 }
 
-xml2js.parseString(fs.readFileSync(cli.composition), (err, data)=> {
-    composition = data.composition;
-    var compName = composition.generalInfo[0]['$'].name;
-    var out = cli.outputDir || process.cwd();
-    newRootFolder = path.join(out, compName);
-    console.log(`processing ${composition.decks.length} deck(s) of clips`);
+// cli tool mode
+if (!module.parent) {
+    xml2js.parseString(fs.readFileSync(cli.composition), (err, data)=> {
+        composition = data.composition;
+        var compName = composition.generalInfo[0]['$'].name;
+        var out = cli.outputDir || process.cwd();
+        newRootFolder = path.join(out, compName);
+        console.log(`processing ${composition.decks.length} deck(s) of clips`);
 
-    async.mapSeries(composition.decks, parseDeck, (err, newDecks) => {
-        console.log('all decks done.');
-        composition.decks = newDecks;
-        data.composition = composition;
-        saveComposition(compName, data);
+        async.mapSeries(composition.decks, parseDeck, (err, newDecks) => {
+            console.log('all decks done.');
+            composition.decks = newDecks;
+            data.composition = composition;
+            saveComposition(compName, data);
+        });
     });
-});
+}
+
+exports.clipHasFile = clipHasFile;
+exports.getNewPaths = getNewPaths;
+exports.oldPaths    = oldPaths;
