@@ -67,46 +67,41 @@ function defaultError(err, cb) {
     console.error(err);
 }
 
-function copyClip(clip, cb) {
+function copyClip(clip, callback) {
     // make sure to exclude FX / non-file clips
     if (!clipHasFile(clip))  {
-        console.log("\nNON FILE\n");
-        return cb(null, clip);
+        return callback(null, clip);
     }
 
     var paths = oldPaths(clip);
     var newPaths = getNewPaths(newRootFolder, paths);
-    console.log(paths, newPaths);
 
     // handle when we want to just use a moved archive + update paths
     if (cli.refresh || copiedClips.indexOf(clip) != -1) {
         setClipPath(clip, newPath);
-        return cb(null, clip);
+        return callback(null, clip);
     }
 
     copiedClips.push(clip);
+
     async.each(['audio', 'video'], (type, cb) => {
         var file = paths[type];
-        if (file) {
-            fs.copy(file, newPaths[type], (err) => {
-                if (!err) {
-                    console.log(`copied ${path.basename(file)} ${type} to ${newRootFolder}`);
-                    setClipPaths(clip, newPaths);
-                    cb(null, clip);
-                }
-                else defaultError(err, cb); console.error(paths);
-            });
-        } else cb();
-    }, (err, result) => {
-        console.log("final cb??",err, result);
-    });
-
+        if (!file) return cb();
+        fs.copy(file, newPaths[type], (err) => {
+            if (!err) {
+                console.log(`copied ${path.basename(file)} ${type} to ${newRootFolder}`);
+                setClipPaths(clip, newPaths);
+                cb();
+            }
+            else defaultError(err, cb)
+        });
+    }, () => callback(null, clip));
 }
 
 function parseDeck(deckWrapper, cb) {
     var deck = deckWrapper.deck[0];
 
-    async.mapLimit(deck.clip, 4, copyClip, (err, clips) => {
+    async.mapLimit(deck.clip, 2, copyClip, (err, clips) => {
         if(!err) {
             newDeck = deck;
             newDeck.clip = clips;
@@ -125,12 +120,13 @@ function handleZips(compName) {
     }
 }
 
-function saveComposition(compName, data) {
+function saveComposition(compName, data, callback) {
     var xml = new xml2js.Builder().buildObject(data);
     var compFile = path.join(newRootFolder, `${compName}.avc`);
     fs.writeFile(compFile, xml, (err) => {
         console.log(`saved composition: ${path.basename(compFile)}`);
         handleZips(compName);
+        if (callback) callback(err);
     });
 }
 
@@ -150,8 +146,11 @@ if (!module.parent) {
             saveComposition(compName, data);
         });
     });
+} else {
+    newRootFolder = process.cwd();
 }
 
+exports.saveComposition = saveComposition;
 exports.clipHasFile = clipHasFile;
 exports.getNewPaths = getNewPaths;
 exports.oldPaths    = oldPaths;
