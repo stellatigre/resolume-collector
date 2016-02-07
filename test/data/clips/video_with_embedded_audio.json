@@ -1,0 +1,527 @@
+{
+  "$": {
+    "uniqueId": "539975503",
+    "layerIndex": "0",
+    "trackIndex": "7"
+  },
+  "settings": [
+    {
+      "$": {
+        "fileId": "193969317"
+      },
+      "name": [
+        {
+          "$": {
+            "value": "Moving star field - 720p (colour)"
+          }
+        }
+      ],
+      "nameGiven": [
+        {
+          "$": {
+            "value": "Moving star field - 720p (colour)"
+          }
+        }
+      ],
+      "desc": [
+        {
+          "$": {
+            "value": "empty clip"
+          }
+        }
+      ],
+      "quantization": [
+        {
+          "$": {
+            "value": "2"
+          }
+        }
+      ],
+      "autoPilot": [
+        {
+          "action": [
+            {
+              "$": {
+                "value": "-1"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "videoClip": [
+    {
+      "source": [
+        {
+          "$": {
+            "type": "file",
+            "couldContainVideo": "1",
+            "couldContainAudio": "1",
+            "name": "/Users/stella/VJ Materials/Moving star field - 720p (colour).mov",
+            "shortName": "Moving star field - 720p (colour).mov",
+            "ext": ".mov"
+          }
+        }
+      ],
+      "provider": [
+        {
+          "$": {
+            "transparent": "1"
+          },
+          "settings": [
+            {
+              "parameter": [
+                {
+                  "$": {
+                    "paramType": "110"
+                  },
+                  "name": [
+                    {
+                      "$": {
+                        "value": "Alpha Type"
+                      }
+                    }
+                  ],
+                  "nameGiven": [
+                    {
+                      "$": {
+                        "value": "Alpha Type"
+                      }
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "settings": [
+        {
+          "$": {
+            "name": "Moving star field - 720p (colour)",
+            "desc": "DXV 3.0 Normal Quality, With Alpha\r\n1280x720\r\n24 FPS, 00:02:00.083",
+            "fileId": "193969317",
+            "renderPassOrder": "0,1,2"
+          },
+          "playbackSettings": [
+            {
+              "beats": [
+                {
+                  "$": {
+                    "curValue": "256",
+                    "defaultValue": "4",
+                    "startValue": "1",
+                    "stopValue": "10000"
+                  }
+                }
+              ]
+            }
+          ],
+          "parameters": [
+            {
+              "parameter": [
+                {
+                  "$": {
+                    "paramType": "10",
+                    "paramSubType": "3",
+                    "paramControlType": "1",
+                    "orgDuration": "120083.333",
+                    "duration": "120083.333",
+                    "linkedParamPath": "/layer/clip/audio/position/"
+                  },
+                  "name": [
+                    {
+                      "$": {
+                        "value": "Position"
+                      }
+                    }
+                  ],
+                  "nameGiven": [
+                    {
+                      "$": {
+                        "value": "Position"
+                      }
+                    }
+                  ],
+                  "textValue": [
+                    {
+                      "$": {
+                        "value": ""
+                      }
+                    }
+                  ],
+                  "extended": [
+                    {
+                      "$": {
+                        "value": "0"
+                      }
+                    }
+                  ],
+                  "values": [
+                    {
+                      "$": {
+                        "curValue": "64937.722",
+                        "defaultValue": "0",
+                        "startValue": "0",
+                        "stopValue": "120083.333"
+                      }
+                    }
+                  ],
+                  "pointsOfInterest": [
+                    {
+                      "$": {
+                        "value": "0"
+                      }
+                    }
+                  ],
+                  "jumpToPointsOfInterest": [
+                    {
+                      "$": {
+                        "value": "-1"
+                      }
+                    }
+                  ],
+                  "speedFactor": [
+                    {
+                      "$": {
+                        "curValue": "1",
+                        "defaultValue": "1",
+                        "startValue": "0.0001",
+                        "stopValue": "10"
+                      }
+                    }
+                  ],
+                  "direction": [
+                    {
+                      "$": {
+                        "value": "0"
+                      }
+                    }
+                  ],
+                  "playmode": [
+                    {
+                      "$": {
+                        "value": "1"
+                      }
+                    }
+                  ],
+                  "playmodeAway": [
+                    {
+                      "$": {
+                        "value": "0"
+                      }
+                    }
+                  ],
+                  "linkMultiplier": [
+                    {
+                      "$": {
+                        "curValue": "1",
+                        "defaultValue": "1",
+                        "startValue": "1",
+                        "stopValue": "4096"
+                      }
+                    }
+                  ],
+                  "linkModifier": [
+                    {
+                      "$": {
+                        "curValue": "0",
+                        "defaultValue": "0",
+                        "startValue": "0",
+                        "stopValue": "1"
+                      }
+                    }
+                  ],
+                  "modifiers": [
+                    {
+                      "modifier": [
+                        {
+                          "$": {
+                            "type": "4",
+                            "index": "1000"
+                          },
+                          "properties": [
+                            {
+                              "easeIn": [
+                                {
+                                  "$": {
+                                    "value": "0"
+                                  }
+                                }
+                              ],
+                              "easeOut": [
+                                {
+                                  "$": {
+                                    "value": "1"
+                                  }
+                                }
+                              ],
+                              "option": [
+                                {
+                                  "$": {
+                                    "value": "2"
+                                  }
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "$": {
+                    "paramControlType": "2"
+                  },
+                  "name": [
+                    {
+                      "$": {
+                        "value": "Position X"
+                      }
+                    }
+                  ],
+                  "nameGiven": [
+                    {
+                      "$": {
+                        "value": "Position X"
+                      }
+                    }
+                  ]
+                },
+                {
+                  "$": {
+                    "paramControlType": "2"
+                  },
+                  "name": [
+                    {
+                      "$": {
+                        "value": "Position Y"
+                      }
+                    }
+                  ],
+                  "nameGiven": [
+                    {
+                      "$": {
+                        "value": "Position Y"
+                      }
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "audioClip": [
+    {
+      "source": [
+        {
+          "$": {
+            "type": "file",
+            "couldContainVideo": "1",
+            "couldContainAudio": "1",
+            "name": "/Users/stella/VJ Materials/Moving star field - 720p (colour).mov",
+            "shortName": "Moving star field - 720p (colour).mov",
+            "ext": ".mov"
+          }
+        }
+      ],
+      "settings": [
+        {
+          "$": {
+            "name": "Moving star field - 720p (colour)",
+            "desc": "Quicktime Audio Decoder\r\n44.100kHz, Stereo\r\n00:02:00.083",
+            "fileId": "193969317"
+          },
+          "playbackSettings": [
+            {
+              "timelineMode": [
+                {
+                  "$": {
+                    "value": "2"
+                  }
+                }
+              ],
+              "bpm": [
+                {
+                  "$": {
+                    "curValue": "125",
+                    "defaultValue": "120",
+                    "startValue": "30",
+                    "stopValue": "500"
+                  }
+                }
+              ],
+              "syncMode": [
+                {
+                  "$": {
+                    "value": "2"
+                  }
+                }
+              ]
+            }
+          ],
+          "parameters": [
+            {
+              "parameter": [
+                {
+                  "$": {
+                    "paramType": "10",
+                    "paramSubType": "1",
+                    "paramControlType": "1",
+                    "orgDuration": "120083.333",
+                    "duration": "120083.333"
+                  },
+                  "name": [
+                    {
+                      "$": {
+                        "value": "Position"
+                      }
+                    }
+                  ],
+                  "nameGiven": [
+                    {
+                      "$": {
+                        "value": "Position"
+                      }
+                    }
+                  ],
+                  "textValue": [
+                    {
+                      "$": {
+                        "value": ""
+                      }
+                    }
+                  ],
+                  "extended": [
+                    {
+                      "$": {
+                        "value": "0"
+                      }
+                    }
+                  ],
+                  "values": [
+                    {
+                      "$": {
+                        "curValue": "2863753",
+                        "defaultValue": "0",
+                        "startValue": "0",
+                        "stopValue": "5295674"
+                      }
+                    }
+                  ],
+                  "pointsOfInterest": [
+                    {
+                      "$": {
+                        "value": "0"
+                      }
+                    }
+                  ],
+                  "jumpToPointsOfInterest": [
+                    {
+                      "$": {
+                        "value": "-1"
+                      }
+                    }
+                  ],
+                  "speedFactor": [
+                    {
+                      "$": {
+                        "curValue": "1",
+                        "defaultValue": "1",
+                        "startValue": "0.0001",
+                        "stopValue": "10"
+                      }
+                    }
+                  ],
+                  "direction": [
+                    {
+                      "$": {
+                        "value": "0"
+                      }
+                    }
+                  ],
+                  "playmode": [
+                    {
+                      "$": {
+                        "value": "1"
+                      }
+                    }
+                  ],
+                  "playmodeAway": [
+                    {
+                      "$": {
+                        "value": "0"
+                      }
+                    }
+                  ],
+                  "linkMultiplier": [
+                    {
+                      "$": {
+                        "curValue": "1",
+                        "defaultValue": "1",
+                        "startValue": "1",
+                        "stopValue": "4096"
+                      }
+                    }
+                  ],
+                  "linkModifier": [
+                    {
+                      "$": {
+                        "curValue": "0",
+                        "defaultValue": "0",
+                        "startValue": "0",
+                        "stopValue": "1"
+                      }
+                    }
+                  ],
+                  "modifiers": [
+                    {
+                      "modifier": [
+                        {
+                          "$": {
+                            "type": "4",
+                            "index": "1000"
+                          },
+                          "properties": [
+                            {
+                              "easeIn": [
+                                {
+                                  "$": {
+                                    "value": "0"
+                                  }
+                                }
+                              ],
+                              "easeOut": [
+                                {
+                                  "$": {
+                                    "value": "1"
+                                  }
+                                }
+                              ],
+                              "option": [
+                                {
+                                  "$": {
+                                    "value": "2"
+                                  }
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

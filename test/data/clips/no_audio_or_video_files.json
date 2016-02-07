@@ -1,0 +1,59 @@
+{
+  "$": {
+    "uniqueId": "251919642",
+    "layerIndex": "2",
+    "trackIndex": "1"
+  },
+  "settings": [
+    {
+      "$": {
+        "fileId": "90198685"
+      },
+      "name": [
+        {
+          "$": {
+            "value": "RGB Delay"
+          }
+        }
+      ],
+      "nameGiven": [
+        {
+          "$": {
+            "value": "RGB Delay"
+          }
+        }
+      ],
+      "desc": [
+        {
+          "$": {
+            "value": "empty clip"
+          }
+        }
+      ],
+      "quantization": [
+        {
+          "$": {
+            "value": "1"
+          }
+        }
+      ],
+      "autoPilot": [
+        {
+          "action": [
+            {
+              "$": {
+                "value": "-1"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "videoClip": [
+    ""
+  ],
+  "audioClip": [
+    ""
+  ]
+}

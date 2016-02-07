@@ -1,0 +1,274 @@
+{
+  "$": {
+    "uniqueId": "539975500",
+    "layerIndex": "2",
+    "trackIndex": "0"
+  },
+  "settings": [
+    {
+      "$": {
+        "fileId": "-1320971325"
+      },
+      "name": [
+        {
+          "$": {
+            "value": "Love Hz Freq 5 Final"
+          }
+        }
+      ],
+      "nameGiven": [
+        {
+          "$": {
+            "value": "Love Hz Freq 5 Final"
+          }
+        }
+      ],
+      "desc": [
+        {
+          "$": {
+            "value": "empty clip"
+          }
+        }
+      ],
+      "quantization": [
+        {
+          "$": {
+            "value": "2"
+          }
+        }
+      ],
+      "autoPilot": [
+        {
+          "action": [
+            {
+              "$": {
+                "value": "-1"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "videoClip": [
+    ""
+  ],
+  "audioClip": [
+    {
+      "source": [
+        {
+          "$": {
+            "type": "file",
+            "couldContainVideo": "0",
+            "couldContainAudio": "1",
+            "name": "/Users/stella/Love Hz Freq 5 Final.wav",
+            "shortName": "Love Hz Freq 5 Final.wav",
+            "ext": ".wav"
+          }
+        }
+      ],
+      "settings": [
+        {
+          "$": {
+            "name": "Love Hz Freq 5 Final",
+            "desc": "WAV file\r\n44.100kHz, Stereo\r\n00:24:54.000",
+            "fileId": "-1320971325"
+          },
+          "playbackSettings": [
+            {
+              "timelineMode": [
+                {
+                  "$": {
+                    "value": "2"
+                  }
+                }
+              ],
+              "bpm": [
+                {
+                  "$": {
+                    "curValue": "280",
+                    "defaultValue": "120",
+                    "startValue": "30",
+                    "stopValue": "500"
+                  }
+                }
+              ],
+              "beats": [
+                {
+                  "$": {
+                    "curValue": "3943",
+                    "defaultValue": "4",
+                    "startValue": "1",
+                    "stopValue": "10000"
+                  }
+                }
+              ],
+              "syncMode": [
+                {
+                  "$": {
+                    "value": "2"
+                  }
+                }
+              ]
+            }
+          ],
+          "parameters": [
+            {
+              "parameter": [
+                {
+                  "$": {
+                    "paramType": "10",
+                    "paramSubType": "1",
+                    "paramControlType": "1",
+                    "orgDuration": "1494000",
+                    "duration": "1494000"
+                  },
+                  "name": [
+                    {
+                      "$": {
+                        "value": "Position"
+                      }
+                    }
+                  ],
+                  "nameGiven": [
+                    {
+                      "$": {
+                        "value": "Position"
+                      }
+                    }
+                  ],
+                  "textValue": [
+                    {
+                      "$": {
+                        "value": ""
+                      }
+                    }
+                  ],
+                  "extended": [
+                    {
+                      "$": {
+                        "value": "0"
+                      }
+                    }
+                  ],
+                  "values": [
+                    {
+                      "$": {
+                        "curValue": "2017361",
+                        "defaultValue": "0",
+                        "startValue": "0",
+                        "stopValue": "65885399"
+                      }
+                    }
+                  ],
+                  "pointsOfInterest": [
+                    {
+                      "$": {
+                        "value": "0"
+                      }
+                    }
+                  ],
+                  "jumpToPointsOfInterest": [
+                    {
+                      "$": {
+                        "value": "-1"
+                      }
+                    }
+                  ],
+                  "speedFactor": [
+                    {
+                      "$": {
+                        "curValue": "1",
+                        "defaultValue": "1",
+                        "startValue": "0.0001",
+                        "stopValue": "10"
+                      }
+                    }
+                  ],
+                  "direction": [
+                    {
+                      "$": {
+                        "value": "0"
+                      }
+                    }
+                  ],
+                  "playmode": [
+                    {
+                      "$": {
+                        "value": "1"
+                      }
+                    }
+                  ],
+                  "playmodeAway": [
+                    {
+                      "$": {
+                        "value": "0"
+                      }
+                    }
+                  ],
+                  "linkMultiplier": [
+                    {
+                      "$": {
+                        "curValue": "1",
+                        "defaultValue": "1",
+                        "startValue": "1",
+                        "stopValue": "4096"
+                      }
+                    }
+                  ],
+                  "linkModifier": [
+                    {
+                      "$": {
+                        "curValue": "0",
+                        "defaultValue": "0",
+                        "startValue": "0",
+                        "stopValue": "1"
+                      }
+                    }
+                  ],
+                  "modifiers": [
+                    {
+                      "modifier": [
+                        {
+                          "$": {
+                            "type": "4",
+                            "index": "1000"
+                          },
+                          "properties": [
+                            {
+                              "easeIn": [
+                                {
+                                  "$": {
+                                    "value": "0"
+                                  }
+                                }
+                              ],
+                              "easeOut": [
+                                {
+                                  "$": {
+                                    "value": "1"
+                                  }
+                                }
+                              ],
+                              "option": [
+                                {
+                                  "$": {
+                                    "value": "2"
+                                  }
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

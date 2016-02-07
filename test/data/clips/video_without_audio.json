@@ -1,0 +1,314 @@
+{
+  "$": {
+    "uniqueId": "563577728",
+    "layerIndex": "1",
+    "trackIndex": "9"
+  },
+  "settings": [
+    {
+      "$": {
+        "fileId": "1887689847"
+      },
+      "name": [
+        {
+          "$": {
+            "value": "SU-garnetghostride"
+          }
+        }
+      ],
+      "nameGiven": [
+        {
+          "$": {
+            "value": "SU-garnetghostride"
+          }
+        }
+      ],
+      "desc": [
+        {
+          "$": {
+            "value": "empty clip"
+          }
+        }
+      ],
+      "autoPilot": [
+        {
+          "action": [
+            {
+              "$": {
+                "value": "-1"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "videoClip": [
+    {
+      "source": [
+        {
+          "$": {
+            "type": "file",
+            "couldContainVideo": "1",
+            "couldContainAudio": "1",
+            "name": "/Users/stella/VJ Materials/SU-garnetghostride.mov",
+            "shortName": "SU-garnetghostride.mov",
+            "ext": ".mov"
+          }
+        }
+      ],
+      "provider": [
+        {
+          "$": {
+            "transparent": "1"
+          },
+          "settings": [
+            {
+              "parameter": [
+                {
+                  "$": {
+                    "paramType": "110"
+                  },
+                  "name": [
+                    {
+                      "$": {
+                        "value": "Alpha Type"
+                      }
+                    }
+                  ],
+                  "nameGiven": [
+                    {
+                      "$": {
+                        "value": "Alpha Type"
+                      }
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "settings": [
+        {
+          "$": {
+            "name": "SU-garnetghostride",
+            "desc": "DXV 3.0 Normal Quality, With Alpha\r\n1280x720\r\n25 FPS, 00:00:01.200",
+            "fileId": "1887689847",
+            "renderPassOrder": "0,1,2"
+          },
+          "playbackSettings": [
+            {
+              "beats": [
+                {
+                  "$": {
+                    "curValue": "2",
+                    "defaultValue": "4",
+                    "startValue": "1",
+                    "stopValue": "10000"
+                  }
+                }
+              ]
+            }
+          ],
+          "parameters": [
+            {
+              "parameter": [
+                {
+                  "$": {
+                    "paramType": "10",
+                    "paramSubType": "2",
+                    "paramControlType": "1",
+                    "orgDuration": "1200",
+                    "duration": "1200"
+                  },
+                  "name": [
+                    {
+                      "$": {
+                        "value": "Position"
+                      }
+                    }
+                  ],
+                  "nameGiven": [
+                    {
+                      "$": {
+                        "value": "Position"
+                      }
+                    }
+                  ],
+                  "textValue": [
+                    {
+                      "$": {
+                        "value": ""
+                      }
+                    }
+                  ],
+                  "extended": [
+                    {
+                      "$": {
+                        "value": "0"
+                      }
+                    }
+                  ],
+                  "values": [
+                    {
+                      "$": {
+                        "curValue": "117.640764",
+                        "defaultValue": "0",
+                        "startValue": "0",
+                        "stopValue": "1200"
+                      }
+                    }
+                  ],
+                  "pointsOfInterest": [
+                    {
+                      "$": {
+                        "value": "0"
+                      }
+                    }
+                  ],
+                  "jumpToPointsOfInterest": [
+                    {
+                      "$": {
+                        "value": "-1"
+                      }
+                    }
+                  ],
+                  "speedFactor": [
+                    {
+                      "$": {
+                        "curValue": "1",
+                        "defaultValue": "1",
+                        "startValue": "0.0001",
+                        "stopValue": "10"
+                      }
+                    }
+                  ],
+                  "direction": [
+                    {
+                      "$": {
+                        "value": "0"
+                      }
+                    }
+                  ],
+                  "playmode": [
+                    {
+                      "$": {
+                        "value": "1"
+                      }
+                    }
+                  ],
+                  "playmodeAway": [
+                    {
+                      "$": {
+                        "value": "0"
+                      }
+                    }
+                  ],
+                  "linkMultiplier": [
+                    {
+                      "$": {
+                        "curValue": "2",
+                        "defaultValue": "1",
+                        "startValue": "1",
+                        "stopValue": "4096"
+                      }
+                    }
+                  ],
+                  "linkModifier": [
+                    {
+                      "$": {
+                        "curValue": "0",
+                        "defaultValue": "0",
+                        "startValue": "0",
+                        "stopValue": "1"
+                      }
+                    }
+                  ],
+                  "modifiers": [
+                    {
+                      "modifier": [
+                        {
+                          "$": {
+                            "type": "4",
+                            "index": "1000"
+                          },
+                          "properties": [
+                            {
+                              "easeIn": [
+                                {
+                                  "$": {
+                                    "value": "0"
+                                  }
+                                }
+                              ],
+                              "easeOut": [
+                                {
+                                  "$": {
+                                    "value": "1"
+                                  }
+                                }
+                              ],
+                              "option": [
+                                {
+                                  "$": {
+                                    "value": "2"
+                                  }
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "$": {
+                    "paramControlType": "2"
+                  },
+                  "name": [
+                    {
+                      "$": {
+                        "value": "Position X"
+                      }
+                    }
+                  ],
+                  "nameGiven": [
+                    {
+                      "$": {
+                        "value": "Position X"
+                      }
+                    }
+                  ]
+                },
+                {
+                  "$": {
+                    "paramControlType": "2"
+                  },
+                  "name": [
+                    {
+                      "$": {
+                        "value": "Position Y"
+                      }
+                    }
+                  ],
+                  "nameGiven": [
+                    {
+                      "$": {
+                        "value": "Position Y"
+                      }
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "audioClip": [
+    ""
+  ]
+}
