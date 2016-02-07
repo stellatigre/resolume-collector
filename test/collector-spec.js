@@ -1,5 +1,9 @@
+var fs = require('fs');
 var assert = require('chai').assert;
 var collector = require('../collector');
+
+var clips = fs.readdirSync('test/data/clips')
+                .map((file) => `./data/clips/${file}`).map(require);
 
 describe('#getNewPaths', () => {
 
@@ -31,6 +35,26 @@ describe('#getNewPaths', () => {
 
     it('should return \'\' for video if there\'s no input video clip', () => {
         assert.equal(newAudioPaths.video, '');
+    });
+
+});
+
+
+describe('#clipHasFile', () => {
+
+    var audioOnly               = clips[0];
+    var neither                 = clips[1];
+    var videoWithEmbeddedAudio  = clips[2];
+    var videoOnly               = clips[3];
+
+    it('should return true if the clip has video or audio files', () => {
+        assert.ok(collector.clipHasFile(videoOnly));
+        assert.ok(collector.clipHasFile(videoOnly));
+        assert.ok(collector.clipHasFile(videoWithEmbeddedAudio));
+    });
+
+    it('should return false if the clip has no video or audio files', () => {
+        assert.notOk(collector.clipHasFile(neither));
     });
 
 });
