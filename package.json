@@ -23,6 +23,10 @@
     "xml2js": "^0.4.15"
   },
   "bin": {
-      "resolume-collector": "collector.js"
+    "resolume-collector": "collector.js"
+  },
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "mocha": "^2.4.5"
   }
 }
