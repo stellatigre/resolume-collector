@@ -1,6 +1,7 @@
 var fs = require('fs');
 var path = require('path');
 var assert = require('chai').assert;
+var xml2js = require('xml2js');
 var collector = require('../collector');
 
 var clips = fs.readdirSync('test/data/clips')
@@ -84,5 +85,33 @@ describe('#clipHasFile', () => {
     it('should return false if the clip has no video or audio files', () => {
         assert.notOk(collector.clipHasFile(nonFile));
     });
+
+});
+
+describe('#saveComposition', () => {
+
+    var comp, xml;
+    var compName = 'replicant';
+    var testFile = './test/data/compositions/testcomp.avc';
+
+    before((done) => {
+        xml = fs.readFileSync(testFile);
+        xml2js.parseString(xml, (err, data) => {
+            collector.saveComposition(compName, data, done);
+        });
+    })
+
+    it('should save a composition with the comp name as the filename', () => {
+        assert.ok(fs.statSync(`${compName}.avc`));
+    });
+
+    it('should serialize the XML just as it got it, if unchanged', () => {
+        assert.deepEqual(xml.toString(),
+                         fs.readFileSync(`${compName}.avc`).toString());
+    });
+
+    after(() => {
+        fs.unlinkSync(`${compName}.avc`)
+    })
 
 });
