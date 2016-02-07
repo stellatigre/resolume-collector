@@ -151,6 +151,7 @@ if (!module.parent) {
 }
 
 exports.saveComposition = saveComposition;
+exports.copyClip    = copyClip;
 exports.clipHasFile = clipHasFile;
 exports.getNewPaths = getNewPaths;
 exports.oldPaths    = oldPaths;

@@ -51,8 +51,8 @@
             "type": "file",
             "couldContainVideo": "1",
             "couldContainAudio": "1",
-            "name": "/Users/stella/VJ Materials/SU-garnetghostride.mov",
-            "shortName": "SU-garnetghostride.mov",
+            "name": "./test/data/video/sao-login.mov",
+            "shortName": "SAO-Login.mov",
             "ext": ".mov"
           }
         }

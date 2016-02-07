@@ -1,5 +1,6 @@
 var fs = require('fs');
 var path = require('path');
+var async = require('async');
 var assert = require('chai').assert;
 var xml2js = require('xml2js');
 var collector = require('../collector');
@@ -112,6 +113,35 @@ describe('#saveComposition', () => {
 
     after(() => {
         fs.unlinkSync(`${compName}.avc`)
+    })
+
+});
+
+describe('#copyClip', () => {
+
+    var copied;
+    var original = './test/data/video/sao-login.mov';
+    var output   = '';
+
+    before((done) => {
+        async.map([videoOnly], collector.copyClip, (err, data) => {
+            copied = data;
+            output = copied[0].videoClip[0].source[0]['$'].name;
+            done();
+        });
+    })
+
+    it('should save the copy with the same name as the original in ./video/', () => {
+        assert.equal(path.basename(output), path.basename(original));
+    });
+
+    it('should produce copies of the exact same size as the original', () => {
+        assert.equal(fs.readFileSync(original).length,
+                     fs.readFileSync(output).length)
+    });
+
+    after(() => {
+        fs.unlink(output, () => fs.rmdirSync('./video'));
     })
 
 });
